@@ -1,5 +1,6 @@
 # AdventOfCode2020
-# 4/20 🌟
+ __     __
+|04| | |50| 🌟 --> 8.00%
 Event on: https://adventofcode.com/2020
 
            *             ,
