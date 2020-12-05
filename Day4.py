@@ -36,13 +36,20 @@ def part_two():
         # first validation
         if set(fields).issubset(passport.keys()):
             # second validation
-            if re.search('(?=^([0-9]{4})$)(?:19[2-9][0-9]|200[0-2])', passport["byr"]) is not None:
-                if re.search('(?=^([0-9]{4})$)(?:20[1][0-9]|2020)', passport["iyr"]) is not None:
-                    if re.search('(?=^([0-9]{4})$)(?:20[2][0-9]|2030)', passport["eyr"]) is not None:
-                        if re.search('((?=^([0-9]{3}))(?:1[5-8][0-9]|19[0-3])(?=cm$))|((?=^([0-9]{2}))(?:59|6[0-9]|7[0-6])(?=in$))', passport["hgt"]) is not None:
-                            if re.search('^#[0-9a-f]{6}$', passport["hcl"]) is not None:
-                                if re.search('^(amb|blu|brn|gry|grn|hzl|oth)$', passport["ecl"]) is not None:
-                                    if re.search('^([0-9]{9})$', passport["pid"]) is not None:
-                                        valid_passports += 1
-    print(valid_passports)
+            if not re.search('(?=^([0-9]{4})$)(?:19[2-9][0-9]|200[0-2])', passport["byr"]):
+                continue
+            if not re.search('(?=^([0-9]{4})$)(?:20[1][0-9]|2020)', passport["iyr"]):
+                continue
+            if not re.search('(?=^([0-9]{4})$)(?:20[2][0-9]|2030)', passport["eyr"]):
+                continue
+            if not re.search('((?=^([0-9]{3}))(?:1[5-8][0-9]|19[0-3])(?=cm$))|((?=^([0-9]{2}))(?:59|6[0-9]|7[0-6])(?=in$))', passport["hgt"]):
+                continue
+            if not re.search('^#[0-9a-f]{6}$', passport["hcl"]):
+                continue
+            if not re.search('^(amb|blu|brn|gry|grn|hzl|oth)$', passport["ecl"]):
+                continue
+            if not re.search('^([0-9]{9})$', passport["pid"]):
+                continue
+            valid_passports += 1
 
+    print(valid_passports)
